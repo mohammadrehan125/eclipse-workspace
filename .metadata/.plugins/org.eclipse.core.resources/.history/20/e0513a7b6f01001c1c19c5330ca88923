@@ -1,0 +1,35 @@
+package Assighnment;
+
+public class KeyPadCombination {
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str = "12";
+		
+	System.out.print(KPC(str,""));
+
+	}
+	public static String[] table = {"","abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+	public static int KPC(String ques,String ans)
+	{
+		if(ques.length()== 0)
+		{
+			System.out.println(ans+" ");
+			return 1 ;
+		}
+		else
+		{
+			int count = 0;
+			char ch = ques.charAt(0);
+			String codeforS = table[ch-'0'];
+			for(int i= 0; i<codeforS.length(); i++)
+			{
+				count = count+ KPC(ques.substring(1),ans+codeforS.charAt(i));
+			}
+			return count;
+		}
+	}
+	
+
+}

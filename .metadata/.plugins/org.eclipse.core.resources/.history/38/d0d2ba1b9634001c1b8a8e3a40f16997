@@ -1,0 +1,32 @@
+package Assighnment;
+
+public class ReplaceAllpi {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str = "xabpixx3.15x";
+		System.out.println(RAP(str));
+
+	}
+	public static String RAP(String st)
+	{
+		if(st.length() < 2)
+		{
+			return st;
+		}
+		else
+		{
+			
+			String s = st.substring(0,2);
+			if(s.equals("pi"))
+			{
+				return "3.14"+RAP(st.substring(2));
+			}
+			else
+			{
+				return (st.charAt(0)+(st.substring(1)));
+			}
+		}
+	}
+
+}

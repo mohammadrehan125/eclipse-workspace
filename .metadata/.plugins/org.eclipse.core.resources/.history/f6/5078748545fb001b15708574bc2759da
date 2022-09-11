@@ -1,0 +1,74 @@
+package lacture20;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PalindromPartitioning {
+	static ArrayList<List<String>>Begans;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Begans = new ArrayList<List<String>>();
+		
+		pp2("nitin", new ArrayList<String>());
+
+	}
+	public static boolean isPalindrom(String s)
+	{
+		int i = 0;
+		int j = s.length()-1;
+		while(i < j)
+		{
+			if(s.charAt(i) != s.charAt(j))
+			{
+				return false;
+			}
+			else
+			{
+				i++;
+				j--;
+			}
+		}
+		return true;
+	}
+	public static void pp(String ques,String ans)
+	{
+		if(ques.length() == 0)
+		{
+			System.out.println(ans);
+		}
+		else
+		{
+			for(int i=1; i<=ques.length(); i++)
+			{
+				String na = ques.substring(0,i);
+				if(isPalindrom(na))
+				{
+					pp(ques.substring(i),ans+na+" ");
+				}
+			}
+		}
+	}
+	public static void pp2(String ques,ArrayList<String>ans)
+	{
+		if(ques.length() == 0)
+		{
+			//System.out.println(ans);
+			Begans.add(new ArrayList<String>(ans));
+		}
+		else
+		{
+			for(int i=1; i<=ques.length(); i++)
+			{
+				String na = ques.substring(0,i);
+				if(isPalindrom(na))
+				{
+					ans.add(na);
+					pp(ques.substring(i),ans+na+" ");
+				}
+			}
+		}
+	}
+	
+
+}

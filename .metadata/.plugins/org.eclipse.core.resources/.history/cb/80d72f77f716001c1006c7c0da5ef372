@@ -1,0 +1,34 @@
+package Assighnment;
+
+import java.util.Scanner;
+
+public class RecursionLexicographical {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int N = sc.nextInt();
+		for(int i =1;i<9;i++)
+		{
+			Rl(N,i);
+		}
+
+	}
+	public static void Rl(int N,int count)
+	{
+		if(count > 0)
+		{
+			return;
+		}
+		else
+		{
+			System.out.print(count+" ");
+			Rl(N,count*10);
+			if(count%10 != 9)
+			{
+				Rl(N,count+1);
+			}
+		}
+	}
+
+}
